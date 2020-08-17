@@ -1,48 +1,48 @@
 ﻿using System;
 using CH01_Records;
 
-var theOtherSideOfTheSky = new Book { 
-    Title = "The Other Side of The Sky", 
-    Author = "Arthur C. Clarke",
-    PublisherName = "Victor Gollancz Ltd."
+var bookOne = new Book { 
+    Title = "Made Up Book", 
+    Author = "Made Up Author",
+    PublisherName = "Made Up Publisher Ltd."
 };
 
-var redezvousWithRama = theOtherSideOfTheSky with { 
-    Title = "Rendezvous with Rama"
+var bookTwo = bookOne with { 
+    Title = "And Another Made Up Book"
 };
 
-var ramaII = redezvousWithRama with { 
-    Title = "Rama II"
+var bookThree = bookTwo with { 
+    Title = "Yet Another Made Up Book"
 };
 
-var theGardenOfRama = ramaII with { 
-    Title = "The Garden of Rama",
+var bookFour = bookThree with { 
+    Title = "And Yet Another Made Up Book: Part 1",
 };
 
-var ramaRevealed = theGardenOfRama with { 
-    Title = "Rama Revealed"
+var bookFive = bookFour with { 
+    Title = "And Yet Another Made Up Book: Part 2"
 };
 
-var theHammerOfGod = ramaRevealed with { 
-    Title = "The Hammer of God"
+var bookSix = bookFive with { 
+    Title = "And Yet Another Made Up Book: Part 3"
 };
 
-Console.WriteLine($"Some of {ramaII.Author}'s books include:\n");
-Console.WriteLine($"- {theOtherSideOfTheSky.Title}");
-Console.WriteLine($"- {redezvousWithRama.Title}");
-Console.WriteLine($"- {ramaII.Title}");
-Console.WriteLine($"- {theGardenOfRama.Title}");
-Console.WriteLine($"- {ramaRevealed.Title}");
-Console.WriteLine($"- {theHammerOfGod.Title}");
+Console.WriteLine($"Some of {bookThree.Author}'s books include:\n");
+Console.WriteLine($"- {bookOne.Title}");
+Console.WriteLine($"- {bookTwo.Title}");
+Console.WriteLine($"- {bookThree.Title}");
+Console.WriteLine($"- {bookFour.Title}");
+Console.WriteLine($"- {bookFive.Title}");
+Console.WriteLine($"- {bookSix.Title}");
 
-Console.WriteLine($"\nMy favourite book by {theOtherSideOfTheSky.Author} is {theOtherSideOfTheSky.Title}.");
-Console.WriteLine($"These books were originally published by {theHammerOfGod.PublisherName}.");
+Console.WriteLine($"\nMy favourite book by {bookOne.Author} is {bookOne.Title}.");
+Console.WriteLine($"These books were originally published by {bookSix.PublisherName}.");
 
-var book = ramaII with { Title = "The Other Side of The Sky" };
-var booksEqual = Object.Equals(book, theOtherSideOfTheSky) ? "Yes" : "No";
-Console.WriteLine($"Are {book.Title} and {theOtherSideOfTheSky.Title} equal? {booksEqual}");
+var book = bookThree with { Title = "Made Up Book" };
+var booksEqual = Object.Equals(book, bookOne) ? "Yes" : "No";
+Console.WriteLine($"Are {book.Title} and {bookOne.Title} equal? {booksEqual}");
 
-var intelliJ = new Product("JetBrains Intelli-J", "Advanced Java Code IDE");
+var intelliJ = new Product("Awsome-X", "Advanced Multi-Language IDE");
 var (product, description) = intelliJ;
 
 Console.WriteLine($"The product called {product} is an {description}.");

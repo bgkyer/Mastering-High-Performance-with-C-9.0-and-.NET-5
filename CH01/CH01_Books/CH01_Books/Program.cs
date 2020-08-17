@@ -1,6 +1,6 @@
 ﻿using System;
 using CH01_Books;
 
-var darkSideOfTheMoon = new Book { Title = "Dark Side of The Moon", Author = "Arthur C. Clarke" };
+var bookName = new Book { Title = "Made up book name", Author = "Made Up Author" };
 
-Console.WriteLine($"{darkSideOfTheMoon.Title} is written by {darkSideOfTheMoon.Author}. Well worth reading!");
+Console.WriteLine($"{bookName.Title} is written by {bookName.Author}. Well worth reading!");
