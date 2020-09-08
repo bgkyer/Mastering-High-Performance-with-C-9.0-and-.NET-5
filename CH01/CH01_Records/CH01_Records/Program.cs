@@ -42,7 +42,7 @@ var book = bookThree with { Title = "Made Up Book" };
 var booksEqual = Object.Equals(book, bookOne) ? "Yes" : "No";
 Console.WriteLine($"Are {book.Title} and {bookOne.Title} equal? {booksEqual}");
 
-var ide = new Product("Awsome-X", "Advanced Multi-Language IDE");
+var ide = new Product("Awesome-X", "Advanced Multi-Language IDE");
 var (product, description) = ide;
 
 Console.WriteLine($"The product called {product} is an {description}.");
