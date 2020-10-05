@@ -2,6 +2,7 @@
 using System.Threading;
 using Microsoft.Office.Tools.Ribbon;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 
 namespace CH02_ExcelVstoAddIn
 {
@@ -20,6 +21,7 @@ namespace CH02_ExcelVstoAddIn
             if (activeCell.Value2 != null)
                 MessageBox.Show(activeCell.Value2.ToString());
             Thread.CurrentThread.CurrentCulture = originalLanguage;
+            var ws = new Worksheet();
         }
     }
 }

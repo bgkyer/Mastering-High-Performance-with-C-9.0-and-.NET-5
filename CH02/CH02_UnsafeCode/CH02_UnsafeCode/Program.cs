@@ -1,11 +1,9 @@
 ﻿namespace CH02_UnsafeCode
 {
     using System;
-    using System.ComponentModel;
 
     class Program
     {
-        // Awsome: https://www.youtube.com/watch?v=oIqEBMw_Syk.
         static void Main(string[] args)
         {
             // Array added to the heap.
