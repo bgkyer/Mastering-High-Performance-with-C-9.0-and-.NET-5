@@ -2,10 +2,21 @@
 {
     using System;
 
-    class ClassNoReferences
+    internal class ClassNoReferences
     {
-        public int Id { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public decimal Price { get; set; }
+        public ClassNoReferences(
+            int id,
+            decimal price,
+            DateTime purchaseDate
+        )
+        {
+            Id = id;
+            Price = price;
+            PurchaseDate = purchaseDate;
+        }
+
+        public int Id { get; private set; }
+        public decimal Price { get; private set; }
+        public DateTime PurchaseDate { get; private set; }
     }
 }

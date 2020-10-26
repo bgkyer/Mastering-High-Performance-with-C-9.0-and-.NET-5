@@ -14,16 +14,44 @@ namespace CH03_PassByValueAndReference
             Console.WriteLine($"    AddByValue(x): {x}");
             AddByReference(ref x);
             Console.WriteLine($"AddByReference(x): {x}");
+            InParameterModifier();
+            OutParameterModifier();
         }
 
-        public static void AddByValue(int x)
+        static void AddByValue(int x)
         {
             x++;
         }
 
-        public static void AddByReference(ref int x)
+        static void AddByReference(ref int x)
         {
             x++;
+        }
+
+        static void InParameterModifier()
+        {
+            int argument = 13;
+            InParameterModifier(argument);
+            Console.WriteLine(argument);
+        }
+
+        static void InParameterModifier(in int argument)
+        {
+            // Error CS8331: Cannot assign to variable 'in int'
+            // because it is a readonly variable.
+            // argument = 47; 
+        }
+
+        static void OutParameterModifier()
+        {
+            int x;
+            OutParameterModifier(out x);
+            Console.WriteLine($"The value of x is: {x}.");
+        }
+
+        static void OutParameterModifier(out int argument)
+        {
+            argument = 123;
         }
     }
 }

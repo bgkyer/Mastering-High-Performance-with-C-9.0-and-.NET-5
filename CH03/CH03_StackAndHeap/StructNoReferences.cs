@@ -4,8 +4,19 @@
 
     internal class StructNoReferences
     {
-        public int Id { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public decimal Price { get; set; }
+        public StructNoReferences(
+            int id,
+            decimal price,
+            DateTime purchaseDate
+        )
+        {
+            Id = id;
+            Price = price;
+            PurchaseDate = purchaseDate;
+        }
+
+        public int Id { get; private set; }
+        public decimal Price { get; private set; }
+        public DateTime PurchaseDate { get; private set; }
     }
 }

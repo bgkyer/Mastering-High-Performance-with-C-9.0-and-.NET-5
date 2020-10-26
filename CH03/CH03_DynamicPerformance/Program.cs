@@ -1,4 +1,4 @@
-﻿namespace CH03_BoxingAndUnboxing
+﻿namespace CH03_DynamicPerformance
 {
     using System;
     using System.Diagnostics;
@@ -8,9 +8,11 @@
 
     class Program
     {
+        dynamic _dynamicType;
+
         static void Main(string[] _)
         {
-            BenchmarkRunner.Run<BoxingAndUnboxingBenchmarkTests>();
+            BenchmarkRunner.Run<BenchmarkTests>();
         }
     }
 }
