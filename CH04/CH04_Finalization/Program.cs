@@ -11,21 +11,45 @@ namespace CH04_Finalization
 
         static void Main(string[] _)
         {
-            InstantiateObject();
+            Finalization();
+            Disposing();
+            UsingDispose();
+            using (var memoryAllocDealloc = new FreeAllocatedMemory())
+            {
+
+            }
+        }
+
+        private static void Finalization()
+        {
+            Console.WriteLine("--- Finalization ---");
+            InstantiateObject("Finalization");
             PrintObjectData();
             RemoveObjectReference();
             RunGarbageCollector();
-            InstantiateLocalObject();
+            InstantiateLocalObject("Finalization");
             RunGarbageCollector();
             DisplayGeneration(_product);
             RemoveObjectReference();
             RunGarbageCollector();
         }
 
-        private static void InstantiateObject()
+        private static void Disposing()
+        {
+            Console.WriteLine("--- Disposing ---");
+            InstantiateObject("Disposing");
+            PrintObjectData();
+            DisposeOfObject();
+            InstantiateLocalObject("Disposing");
+            DisplayGeneration(_product);
+            DisposeOfObject();
+            RunGarbageCollector();
+        }
+
+        private static void InstantiateObject(string cleanUpMethod)
         {
             Console.WriteLine("Instantiating Product.");
-            _product = new Product()
+            _product = new Product(cleanUpMethod)
             {
                 Id = 1,
                 Name = "Polly Parrot",
@@ -44,14 +68,19 @@ namespace CH04_Finalization
             _product = null;
         }
 
+        private static void DisposeOfObject()
+        {
+            _product.Dispose();
+        }
+
         private static void RunGarbageCollector()
         {
             GC.Collect();
         }
 
-        private static void InstantiateLocalObject()
+        private static void InstantiateLocalObject(string cleanUpMethod)
         {
-            var product = new Product()
+            var product = new Product(cleanUpMethod)
             {
                 Id = 2,
                 Name = "Cute Kittie",
@@ -60,12 +89,27 @@ namespace CH04_Finalization
             };
             DisplayGeneration(product);
             _product = product;
-            GC.Collect();
         }
 
         private static void DisplayGeneration(Product product)
         {
             Console.WriteLine($"local product: generation {GC.GetGeneration(product)}");
+        }
+
+        private static void UsingDispose()
+        {
+            Console.WriteLine("--- UsingDispose() ---");
+            using (var product = new Product("using")
+                {
+                    Id = 2,
+                    Name = "Cute Kittie",
+                    Description = "Cudly child's toy.",
+                    UnitPrice = 5.75M
+                }
+            )
+            {
+                DisplayGeneration(product);
+            }
         }
     }
 }
