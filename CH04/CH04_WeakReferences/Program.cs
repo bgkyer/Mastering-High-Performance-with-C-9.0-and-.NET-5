@@ -10,9 +10,46 @@
 
         static void Main(string[] _)
         {
+            TestStrongWeakReference();
             TestStrongReferences();
             TestWeakReferences();
             ProcessReferences();
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+        }
+
+        private static void TestStrongWeakReference()
+        {
+            ReferenceObject strongReference = new ReferenceObject() 
+            {
+                Id = 1
+                , Name = "Reference Object 1"
+            };
+            WeakReference<ReferenceObject> weakReference = new WeakReference<ReferenceObject>(strongReference);
+
+            weakReference.TryGetTarget(out ReferenceObject referenceObject1);
+
+            Console.WriteLine($"Reference Object 1: {referenceObject1.Name}");
+
+            strongReference = null;
+            referenceObject1 = null;
+
+            weakReference.TryGetTarget(out ReferenceObject referenceObject2);
+
+            Console.WriteLine($"Reference Object 2: {referenceObject2.Name}");
+
+            referenceObject2 = null;
+
+            GC.Collect();
+
+            weakReference.TryGetTarget(out ReferenceObject referenceObject3);
+
+            Console.WriteLine($"Reference Object 3a: {referenceObject3.Name}");
+
+            weakReference = null;
+            GC.Collect();
+
+            Console.WriteLine($"Reference Object 3b: {referenceObject3.Name}");
         }
 
         private static void TestStrongReferences()
@@ -49,7 +86,7 @@
         {
             int x = 0;
 
-            while(x < 10)
+            while(x < 10000)
             {
                 StrongReferences.ListObjects();
                 WeakReferences.ListObjects();

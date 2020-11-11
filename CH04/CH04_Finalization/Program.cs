@@ -14,7 +14,7 @@ namespace CH04_Finalization
             Finalization();
             Disposing();
             UsingDispose();
-            using (var memoryAllocDealloc = new FreeAllocatedMemory())
+            using (FreeAllocatedMemory memoryAllocDealloc = new FreeAllocatedMemory())
             {
 
             }
@@ -80,7 +80,7 @@ namespace CH04_Finalization
 
         private static void InstantiateLocalObject(string cleanUpMethod)
         {
-            var product = new Product(cleanUpMethod)
+            Product product = new Product(cleanUpMethod)
             {
                 Id = 2,
                 Name = "Cute Kittie",
@@ -99,7 +99,7 @@ namespace CH04_Finalization
         private static void UsingDispose()
         {
             Console.WriteLine("--- UsingDispose() ---");
-            using (var product = new Product("using")
+            using (Product product = new Product("using")
                 {
                     Id = 2,
                     Name = "Cute Kittie",

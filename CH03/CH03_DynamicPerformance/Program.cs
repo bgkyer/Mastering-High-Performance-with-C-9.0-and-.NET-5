@@ -8,7 +8,9 @@
 
     class Program
     {
+#pragma warning disable IDE0051 // Remove unused private members
         dynamic _dynamicType;
+#pragma warning restore IDE0051 // Remove unused private members
 
         static void Main(string[] _)
         {
