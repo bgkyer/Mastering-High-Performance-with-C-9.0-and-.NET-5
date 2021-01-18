@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    internal class StrongReferenceObjectManager
+    internal class LongWeakReferenceObjectManager
     {
         private readonly List<ReferenceObject> Objects = new List<ReferenceObject>();
 
@@ -14,7 +14,7 @@
 
         public void ListObjects()
         {
-            Console.WriteLine("Strong Reference Objects: ");
+            Console.WriteLine("Long Weak Reference Objects: ");
             foreach (var reference in Objects)
                 Console.WriteLine($"- {reference.Name}");
         }

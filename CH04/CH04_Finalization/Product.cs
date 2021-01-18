@@ -20,7 +20,7 @@
 
         ~Product()
         {
-            Console.WriteLine($"Product destructor: {_cleanUpMethod}.");
+            Console.WriteLine($"Product finalizer: {_cleanUpMethod}.");
         }
 
         public override string ToString()

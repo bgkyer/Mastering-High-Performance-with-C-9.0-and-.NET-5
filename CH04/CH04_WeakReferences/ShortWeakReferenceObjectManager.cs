@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     
-    internal class WeakReferenceObjectManager
+    internal class ShortWeakReferenceObjectManager
     {
         private readonly List<WeakReference<ReferenceObject>> Objects = new List<WeakReference<ReferenceObject>>();
         
@@ -14,7 +14,7 @@
 
         public void ListObjects()
         {
-            Console.WriteLine("Weak Reference Objects: ");
+            Console.WriteLine("Short Weak Reference Objects: ");
             foreach (var reference in Objects)
             {
                 reference.TryGetTarget(out ReferenceObject referenceObject);

@@ -4,41 +4,33 @@
 
     class Program
     {
-        private static Product _product;
-
         static void Main(string[] _)
         {
-            InstantiateObject();
-            PrintObjectData();
-            RemoveObjectReference();
-            RunGarbageCollector();
+            //RunExcelExamples();
+            //UseAnonymousEventSubscriptions();
+            WeakReferences();
         }
 
-        private static void InstantiateObject()
+        private static void RunExcelExamples()
+		{
+            UsingExcel excel = new UsingExcel();
+            excel.RunExcelExamples();
+		}
+
+        private static void UseAnonymousEventSubscriptions()
         {
-            Console.WriteLine("Instantiating Product.");
-            _product = new Product()
+            for (int x = 0; x < 1000000; x++)
             {
-                Id = 1,
-                Name = "Polly Parrot",
-                Description = "Cudly child's toy.",
-                UnitPrice = 7.99M
-            };
+                AnonymousEventSubscription aes = new AnonymousEventSubscription();
+                aes.Login();
+                aes.Logout();
+            }
         }
 
-        private static void PrintObjectData()
-        {
-            Console.WriteLine(_product.ToString());
-        }
-
-        private static void RemoveObjectReference()
-        {
-            _product = null;
-        }
-
-        private static void RunGarbageCollector()
-        {
-            GC.Collect();
-        }
+        private static void WeakReferences()
+		{
+            UsingWeakReferences weakReferences = new UsingWeakReferences();
+            weakReferences.RaiseWeakReferenceEvents();
+		}
     }
 }

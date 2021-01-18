@@ -5,12 +5,12 @@
 
     class Program
     {
-        private static readonly StrongReferenceObjectManager StrongReferences = new StrongReferenceObjectManager();
-        private static readonly WeakReferenceObjectManager WeakReferences = new WeakReferenceObjectManager();
+        private static readonly LongWeakReferenceObjectManager StrongReferences = new LongWeakReferenceObjectManager();
+        private static readonly ShortWeakReferenceObjectManager WeakReferences = new ShortWeakReferenceObjectManager();
 
         static void Main(string[] _)
         {
-            TestStrongWeakReference();
+            TestLongWeakReference();
             TestStrongReferences();
             TestWeakReferences();
             ProcessReferences();
@@ -18,7 +18,7 @@
             Console.ReadKey();
         }
 
-        private static void TestStrongWeakReference()
+        private static void TestLongWeakReference()
         {
             ReferenceObject strongReference = new ReferenceObject() 
             {
@@ -61,10 +61,6 @@
             StrongReferences.Add(o1);
             StrongReferences.Add(o2);
             StrongReferences.Add(o3);
-
-            o1 = null;
-            o2 = null;
-            o3 = null;
         }
 
         private static void TestWeakReferences()
