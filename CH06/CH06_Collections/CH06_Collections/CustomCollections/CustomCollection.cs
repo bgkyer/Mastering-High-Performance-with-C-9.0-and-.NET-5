@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CH06_Collections.CustomCollections
+﻿namespace CH06_Collections.CustomCollections
 {
-	class CustomCollection
+	using System.Collections;
+
+	public class CustomCollection : CollectionBase
 	{
+		public void Add(object item)
+		{
+			InnerList.Add(item);
+		}
+
+		public void Remove(object item)
+		{
+			InnerList.Remove(item);
+		}
+
+		public new void Clear()
+		{
+			InnerList.Clear();
+		}
+
+		public new int Count()
+		{
+			return InnerList.Count;
+		}
 	}
 }
