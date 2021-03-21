@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CH05_GameOfLife
 {
@@ -21,17 +22,38 @@ namespace CH05_GameOfLife
 	public partial class MainWindow : Window
     {
         private readonly Grid _mainGrid;
-        readonly System.Windows.Threading.DispatcherTimer _timer;
+        private readonly DispatcherTimer _timer;
         private int _genCounter;
+        private AdWindow _adWindow;
+
 
         public MainWindow()
         {
             InitializeComponent();
             _mainGrid = new Grid(MainCanvas);
-            _timer = new System.Windows.Threading.DispatcherTimer();
+
+            _timer = new DispatcherTimer();
             _timer.Tick += OnTimer;
             _timer.Interval = TimeSpan.FromMilliseconds(200);
         }
+
+
+        private void StartAd()
+        {
+            if (_adWindow != null) return;
+            _adWindow = new AdWindow(this);
+            _adWindow.Closed += AdWindowOnClosed;
+            _adWindow.Top = Top + 400;
+            _adWindow.Left = Left + 240;
+            _adWindow.Show();
+        }
+
+        private void AdWindowOnClosed(object sender, EventArgs eventArgs)
+        {
+            _adWindow.Closed -= AdWindowOnClosed;
+            _adWindow = null;
+        }
+
 
         private void Button_OnClick(object sender, EventArgs e)
         {
@@ -39,6 +61,7 @@ namespace CH05_GameOfLife
             {
                 _timer.Start();
                 ButtonStart.Content = "Stop";
+                StartAd();
             }
             else
             {
