@@ -63,6 +63,7 @@
                         var stringReverser = new StringReverser(line);
                         _lines[j] = stringReverser.Reverse();
 
+                        // UI Freeze Fix: Change the 5 to 1000.
                         if (j % 5 == 0)
                         {
                             var p = (float)(j + 1) / _lines.Length * 100;
