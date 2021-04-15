@@ -3,7 +3,7 @@
 	using BenchmarkDotNet.Attributes;
 	using BenchmarkDotNet.Engines;
 	using BenchmarkDotNet.Order;
-	using CH06_Collections.Linq;
+	using CH06_Collections.Models;
 	using System.Collections.Generic;
 	using System.Threading;
 

@@ -6,7 +6,6 @@
 	using CH06_Collections.ConcreteVsInterface;
 	using CH06_Collections.Configuration;
 	using CH06_Collections.CustomCollections;
-	using CH06_Collections.Linq;
 	using CH06_Collections.Models;
 	using Microsoft.Extensions.Configuration;
 	using Microsoft.Extensions.DependencyInjection;

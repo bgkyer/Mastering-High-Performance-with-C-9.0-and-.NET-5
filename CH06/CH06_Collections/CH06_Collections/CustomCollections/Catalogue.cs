@@ -12,7 +12,6 @@ namespace CH06_Collections.CustomCollections
 	using BenchmarkDotNet.Order;
 
 	using CH06_Collections.CustomCollections;
-	using CH06_Collections.Linq;
 	using CH06_Collections.Models;
 
 	using System.Collections;

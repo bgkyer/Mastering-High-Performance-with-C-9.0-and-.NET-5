@@ -114,9 +114,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CH09_Caching", "CH09\CH09_C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CH09_AspNetCoreCaching", "CH09\CH09_AspNetCoreCaching\CH09_AspNetCoreCaching.csproj", "{546D23B5-7F86-46B4-8F02-305A9BF07749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH07_LinqPerformance", "CH07\CH07_LinqPerformance\CH07_LinqPerformance.csproj", "{21B89F62-E5E5-4953-AA7D-2FF89D006645}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CH07_LinqPerformance", "CH07\CH07_LinqPerformance\CH07_LinqPerformance.csproj", "{21B89F62-E5E5-4953-AA7D-2FF89D006645}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CH10_AdoDotNet", "CH10\CH10_AdoDotNet\CH10_AdoDotNet.csproj", "{E0A48907-06BE-420D-BB64-ECA23BE222A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CH15", "CH15", "{5C26EA6B-4493-4558-8EEE-0BAAD8C9FB28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
